@@ -27,7 +27,7 @@ public class Progetto {
 	@Column(name = "duratainmesi")
 	private Integer durataInMesi;
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "impiegati")
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "progetti")
 	private Set<Impiegato> impiegati = new HashSet<>();
 
 	public Progetto() {
