@@ -20,5 +20,5 @@ public interface ImpiegatoRepository extends CrudRepository<Impiegato, Long>,Que
 	
 //	@Query(value="SELECT DISTINCT i from Societa s join s.impiegati i join i.progetti p where s.dataFondazione >= '1990/01/01' and p.durataInMesi >= 6 order by i.dataAssunzione DESC LIMIT 1", nativeQuery = true)
 	@EntityGraph(attributePaths = { "societa", "progetti" })
-	List<Impiegato> findBySocieta_DataFondazioneAfterAndProgetti_DurataInMesiGreaterThan(Date dateFondazione, Integer mesi);
+	List<Impiegato> findBySocieta_DataFondazioneAfterAndProgetti_DurataInMesiGreaterThanOrderByDataAssunzioneDescFirst(Date dateFondazione, Integer mesi);
 }

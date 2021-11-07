@@ -60,6 +60,6 @@ public class ImpiegatoServiceImpl implements ImpiegatoService {
 	
 	@Transactional
 	public List<Impiegato> findImpiegatoPiuAnzianoDiSocietaFondatePrimaDiCheLavoraAProgettoCheDuraPiuDi(Date date, Integer mesi) {
-		return impiegatoRepository.findBySocieta_DataFondazioneAfterAndProgetti_DurataInMesiGreaterThan(date, mesi);
+		return impiegatoRepository.findBySocieta_DataFondazioneAfterAndProgetti_DurataInMesiGreaterThanOrderByDataAssunzioneDescFirst(date, mesi);
 	}
 }

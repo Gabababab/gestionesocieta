@@ -340,7 +340,7 @@ public class BatteriaDiTestService {
 					"testRicercaImpiegatiDaRAL FALLITO: transient object con id valorizzato");
 		progettoService.inserisciNuovo(progetto);
 
-		Impiegato impiegato1 = new Impiegato("Guglielmo", "Rossi", 30000, new Date("1997/01/04"));
+		Impiegato impiegato1 = new Impiegato("Guglielmo", "Rossi", 30000, new Date("1987/01/04"));
 		Impiegato impiegato2 = new Impiegato("Lucia", "Rossi", 20000, new Date("2000/01/04"));
 		if (impiegato1.getId() != null || impiegato2.getId() != null)
 			throw new RuntimeException(
