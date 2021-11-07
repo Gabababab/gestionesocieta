@@ -24,6 +24,14 @@ public class GestionesocietaApplication implements CommandLineRunner {
 		batteriaDiTestService.testInserimentoSocieta();
 		batteriaDiTestService.testFindByExampleSocieta();
 		batteriaDiTestService.testRimozioneSocieta();
+		batteriaDiTestService.testInserimentoImpiegato();
+		batteriaDiTestService.testInserimentoProgetto();
+		batteriaDiTestService.testCollegamentoImpiegatoAProgetti();
+		batteriaDiTestService.testCollegamentoProgettoAImpiegati();
+		batteriaDiTestService.testRicercaListaClientiDeiProgettiDiUnaSocieta();
+		batteriaDiTestService.testRicercaSocietaConProgettiCheDuranoPiuDiUnAnno();
+		batteriaDiTestService.testRicercaImpiegatiDaRAL();
+		batteriaDiTestService.testImpiegatoPiuAnzianoDiSocietaFondatePrimaDiCheLavoraAProgettoCheDuraPiuDi();
 		
 		System.out.println("-----TERMINE BATTERIA DI TEST-----");
 	}

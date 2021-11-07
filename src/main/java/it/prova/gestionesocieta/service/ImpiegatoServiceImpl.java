@@ -1,5 +1,6 @@
 package it.prova.gestionesocieta.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -30,6 +31,11 @@ public class ImpiegatoServiceImpl implements ImpiegatoService {
 	public Impiegato caricaSingoloImpiegato(Long id) {
 		return impiegatoRepository.findById(id).orElse(null);
 	}
+	
+	@Transactional(readOnly = true)
+	public Impiegato caricaSingoloImpiegatoEagerProgetti(Long id) {
+		return impiegatoRepository.findByIdIs(id).orElse(null);
+	}
 
 	@Transactional
 	public void aggiorna(Impiegato impiegatoInstance) {
@@ -50,5 +56,10 @@ public class ImpiegatoServiceImpl implements ImpiegatoService {
 	public List<Impiegato> findByExample(Impiegato example) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Transactional
+	public List<Impiegato> findImpiegatoPiuAnzianoDiSocietaFondatePrimaDiCheLavoraAProgettoCheDuraPiuDi(Date date, Integer mesi) {
+		return impiegatoRepository.findBySocieta_DataFondazioneAfterAndProgetti_DurataInMesiGreaterThan(date, mesi);
 	}
 }

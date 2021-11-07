@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import it.prova.gestionesocieta.model.Impiegato;
 import it.prova.gestionesocieta.model.Societa;
 import it.prova.gestionesocieta.repository.SocietaRepository;
 
@@ -46,6 +47,11 @@ public class SocietaServiceImpl implements SocietaService{
 	public void rimuovi(Societa societaInstance) {
 		societaRepository.delete(societaInstance);
 	}
+	
+	@Override
+	public List<Societa> findAllSocietaConDurataProgettiPiuDiUnAnno() {
+		return societaRepository.findAllSocietaConDurataProgettiPiuDiUnAnno();				
+	}
 
 	@Override
 	public List<Societa> findByExample(Societa example) {
@@ -58,4 +64,5 @@ public class SocietaServiceImpl implements SocietaService{
 
 		return entityManager.createQuery(query, Societa.class).getResultList();
 	}
+	
 }

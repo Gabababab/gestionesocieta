@@ -1,11 +1,18 @@
 package it.prova.gestionesocieta.repository;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.QueryByExampleExecutor;
 
+import it.prova.gestionesocieta.model.Impiegato;
 import it.prova.gestionesocieta.model.Societa;
 
 
 public interface SocietaRepository extends CrudRepository<Societa, Long>,QueryByExampleExecutor <Societa> {
 
+	@Query("SELECT DISTINCT s from Societa s join s.impiegati i join i.progetti p where p.durataInMesi > 12")
+	List<Societa> findAllSocietaConDurataProgettiPiuDiUnAnno();
+	
 }

@@ -109,4 +109,19 @@ public class Impiegato {
 		this.progetti = progetti;
 	}
 
+	public void addToProgetti(Progetto progettoInstance) {
+		this.progetti.add(progettoInstance);
+		progettoInstance.getImpiegati().add(this);
+	}
+
+	public void removeFromProgetti(Progetto progettoInstance) {
+		this.progetti.remove(progettoInstance);
+		progettoInstance.getImpiegati().remove(this);
+	}
+
+	@Override
+	public String toString() {
+		return "Impiegato [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", dataAssunzione=" + dataAssunzione
+				+ ", ral=" + ral + "]";
+	}
 }

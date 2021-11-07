@@ -30,6 +30,11 @@ public class ProgettoServiceImpl implements ProgettoService{
 	public Progetto caricaSingoloProgetto(Long id) {
 		return progettoRepository.findById(id).orElse(null);
 	}
+	
+	@Transactional(readOnly = true)
+	public Progetto caricaProgettoEager(Long id) {
+		return progettoRepository.findByIdIs(id).get();
+	}
 
 	@Transactional
 	public void aggiorna(Progetto progettoInstance) {
@@ -44,6 +49,16 @@ public class ProgettoServiceImpl implements ProgettoService{
 	@Transactional
 	public void rimuovi(Progetto progettoInstance) {
 		progettoRepository.delete(progettoInstance);
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Progetto> findAllImpiegatoConRadAlmenoA(int ral){
+		return progettoRepository.findAllDistinctByImpiegati_RalIs(ral);
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Progetto> caricaProgettiDaIdSocieta(Long id) {
+		return progettoRepository.findAllByIdSocieta(id);
 	}
 
 	@Override

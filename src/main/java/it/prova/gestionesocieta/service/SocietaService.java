@@ -2,6 +2,7 @@ package it.prova.gestionesocieta.service;
 
 import java.util.List;
 
+import it.prova.gestionesocieta.model.Impiegato;
 import it.prova.gestionesocieta.model.Societa;
 
 
@@ -18,4 +19,7 @@ public interface SocietaService {
 	public void rimuovi(Societa edificioInstance);
 
 	public List<Societa> findByExample(Societa example);
+
+	public List<Societa> findAllSocietaConDurataProgettiPiuDiUnAnno();
+	
 }

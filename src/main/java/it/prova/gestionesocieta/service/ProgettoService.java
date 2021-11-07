@@ -11,6 +11,12 @@ public interface ProgettoService {
 
 	public Progetto caricaSingoloProgetto(Long id);
 
+	public Progetto caricaProgettoEager(Long id);
+	
+	public List<Progetto> caricaProgettiDaIdSocieta(Long id);
+	
+	public List<Progetto> findAllImpiegatoConRadAlmenoA(int ral);
+	
 	public void aggiorna(Progetto edificioInstance);
 
 	public void inserisciNuovo(Progetto edificioInstance);
